@@ -7,6 +7,8 @@ import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import Error from "../Pages/Error/Error";
 import DoctorDetails from "../Pages/Home/DoctorDetails";
+import Dasboard from "../admin/Dasboard";
+import AddDoctor from "../admin/AddDoctor";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,16 @@ const router = createBrowserRouter([
       {
         path: "doctorDetails",
         element: <DoctorDetails />,
+      },
+      {
+        path: "dashboard",
+        element: <Dasboard />,
+        children: [
+          {
+            path: "addDoctor",
+            element: <AddDoctor />,
+          },
+        ],
       },
     ],
   },

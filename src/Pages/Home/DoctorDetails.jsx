@@ -54,7 +54,7 @@ const DoctorDetails = () => {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-10 my-10">
           <div>
             <h1 className="text-xl font-bold my-2">Education</h1>
             <div>

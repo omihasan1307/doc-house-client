@@ -46,6 +46,14 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) => (isActive ? active : inActive)}
+        >
+          Dasboard
+        </NavLink>
+      </li>
+      <li>
         {user ? (
           <div className="flex justify-center items-center ">
             <button onClick={handleLogout} className="me-5 uppercase">
