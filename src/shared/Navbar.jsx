@@ -31,10 +31,10 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/about"
+          to="/doctor"
           className={({ isActive }) => (isActive ? active : inActive)}
         >
-          About
+          Doctors
         </NavLink>
       </li>
       <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/dashboard"
+          to="/dashboard/allUsers"
           className={({ isActive }) => (isActive ? active : inActive)}
         >
           Dasboard

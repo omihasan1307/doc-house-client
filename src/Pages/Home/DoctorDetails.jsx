@@ -2,8 +2,11 @@ import { Rating } from "@smastrom/react-rating";
 import doctor from "../../img/expertDoctor.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { useLoaderData } from "react-router-dom";
 
 const DoctorDetails = () => {
+  const docData = useLoaderData();
+  console.log(docData);
   return (
     <div>
       <div className="bg-[#07332F] text-white  h-[300px] rounded-es-xl rounded-ee-xl">
@@ -11,10 +14,16 @@ const DoctorDetails = () => {
       </div>
       <div className="border flex my-8 rounded-xl shadow-lg">
         <div className="w-[35%] lg:w-[35%] lg:h-[50%] px-4 py-4">
-          <img className="h-full w-full object-cover rounded-lg" src={doctor} />
+          <img
+            className="h-full w-full object-cover rounded-lg"
+            src={docData?.doctorImg}
+          />
         </div>
         <div className=" lg:ms-5 mt-5">
-          <h2 className="text-2xl font-bold">Dr. Ruby Perrin</h2>
+          <h2 className="text-2xl font-bold">Dr {docData?.doctorName}</h2>
+          <h2 className="text-gray-400 mt-1">
+            Specialist : {docData?.doctorSpecialty}
+          </h2>
           <p className="text-gray-400 mt-1">MBBS, MD - General Medicine</p>
           <p className="text-gray-400 mt-1">age : 35 </p>
           <div className="my-5">

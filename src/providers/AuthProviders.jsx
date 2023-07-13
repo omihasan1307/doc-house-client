@@ -10,6 +10,7 @@ import {
 import { app } from "../firebase/firebase.config";
 import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -48,9 +49,17 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", { uid: currentUser?.uid })
+          .then((res) => {
+            localStorage.setItem("access-token", res.data.token);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
       setLoading(false);
       setUser(currentUser);
-      // console.log("currentUser", currentUser);
     });
     return () => {
       return unsubscribe();

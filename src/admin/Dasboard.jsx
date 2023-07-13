@@ -10,12 +10,13 @@ const Dasboard = () => {
     <div className="uppercase ">
       <li>
         <NavLink
-          to="/"
+          to="allUsers"
           className={({ isActive }) => (isActive ? active : inActive)}
         >
           All Users
         </NavLink>
       </li>
+
       <li className="my-2">
         <NavLink
           to="addDoctor"
@@ -26,7 +27,7 @@ const Dasboard = () => {
       </li>
       <li className="my-2">
         <NavLink
-          to="/"
+          to="allDoctors"
           className={({ isActive }) => (isActive ? active : inActive)}
         >
           Manage Doctors

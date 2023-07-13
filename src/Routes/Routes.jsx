@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
-import About from "../Pages/About/About";
 import Appoinment from "../Pages/Appoinment/Appoinment";
 import Home from "../Pages/Home/Home";
 import Login from "../Auth/Login";
@@ -9,6 +8,9 @@ import Error from "../Pages/Error/Error";
 import DoctorDetails from "../Pages/Home/DoctorDetails";
 import Dasboard from "../admin/Dasboard";
 import AddDoctor from "../admin/AddDoctor";
+import AllUsers from "../admin/AllUsers";
+import AllDoctors from "../admin/AllDoctors";
+import Doctor from "../Pages/Doctor/Doctor";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +22,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "about",
-        element: <About />,
+        path: "Doctor",
+        element: <Doctor />,
       },
       {
         path: "appoinment",
@@ -36,8 +38,10 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "doctorDetails",
+        path: "doctorDetails/:id",
         element: <DoctorDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/doctorDetails/${params.id}`),
       },
       {
         path: "dashboard",
@@ -46,6 +50,14 @@ const router = createBrowserRouter([
           {
             path: "addDoctor",
             element: <AddDoctor />,
+          },
+          {
+            path: "allDoctors",
+            element: <AllDoctors />,
+          },
+          {
+            path: "allUsers",
+            element: <AllUsers />,
           },
         ],
       },

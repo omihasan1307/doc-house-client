@@ -1,6 +1,5 @@
 import { Rating } from "@smastrom/react-rating";
-import expertDoc from "../../img/expertDoctor.png";
-import Title from "../../shared/Title";
+import useAllDoctors from "../../hooks/useAllDoctors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendar,
@@ -8,18 +7,11 @@ import {
   faMoneyCheckDollar,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import useAllDoctors from "../../hooks/useAllDoctors";
 
-const ExpertsDoctors = () => {
+const Doctor = () => {
   const [data, refetch, isLoading] = useAllDoctors();
   return (
     <div>
-      <Title
-        title={"Our Expert Doctors"}
-        subtitle={
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-        }
-      ></Title>
       <div className="my-10">
         {isLoading ? (
           <div className=" flex  justify-center">
@@ -27,12 +19,12 @@ const ExpertsDoctors = () => {
           </div>
         ) : (
           <div className="grid lg:grid-cols-3 gap-10 mt-16 mb-10  ">
-            {data?.slice(0, 3)?.map((doc) => (
+            {data?.map((doc) => (
               <div key={doc._id}>
                 <div className="border rounded-xl">
                   <div className="my-5 w-[350px] h-[300px]  mx-auto">
                     <img
-                      className="w-full h-full object-cover rounded-lg"
+                      className="object-cover w-full h-full rounded-lg"
                       src={doc?.doctorImg}
                     />
                   </div>
@@ -42,7 +34,7 @@ const ExpertsDoctors = () => {
                         Dr. {doc?.doctorName}
                       </h2>
                       <h2 className="text-gray-400 font-semibold">
-                        BTP - Senior {doc?.doctorSpecialty}
+                        Specialty : {doc?.doctorSpecialty}
                       </h2>
                       <div className="my-5">
                         <Rating style={{ maxWidth: 100 }} value={5} readOnly />
@@ -82,7 +74,7 @@ const ExpertsDoctors = () => {
                       </div>
                       <div className="ms-4 text-gray-500">${doc?.fees}</div>
                     </div>
-                    <div className="text-white w-full my-3 px-5 py-2 rounded bg-[#F7A582] text-xl text-center">
+                    <div>
                       <Link
                         className="text-white w-full my-3 px-5 py-2 rounded bg-[#F7A582] text-xl text-center inline-block"
                         to={`/doctorDetails/${doc._id}`}
@@ -101,4 +93,4 @@ const ExpertsDoctors = () => {
   );
 };
 
-export default ExpertsDoctors;
+export default Doctor;
