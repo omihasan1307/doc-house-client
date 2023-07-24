@@ -11,6 +11,12 @@ import AddDoctor from "../admin/AddDoctor";
 import AllUsers from "../admin/AllUsers";
 import AllDoctors from "../admin/AllDoctors";
 import Doctor from "../Pages/Doctor/Doctor";
+import ManageDashoard from "../admin/ManageDashoard";
+import AdminPrivateRoute from "./AdminPrivateRoute";
+import PatientDashboad from "../patient/PatientDashboad";
+import Payment from "../Payment/Payment";
+import PrivateRoute from "../providers/AuthProviders";
+import Paid from "../Payment/Paid";
 
 const router = createBrowserRouter([
   {
@@ -41,12 +47,39 @@ const router = createBrowserRouter([
         path: "doctorDetails/:id",
         element: <DoctorDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/doctorDetails/${params.id}`),
+          fetch(
+            `https://doc-house-server-omihasan1307.vercel.app/doctorDetails/${params.id}`
+          ),
+      },
+      {
+        path: "payment/:id",
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://doc-house-server-omihasan1307.vercel.app/bookingList/${params.id}`
+          ),
+      },
+
+      {
+        path: "patient",
+        element: <PatientDashboad />,
       },
       {
         path: "dashboard",
-        element: <Dasboard />,
+        element: (
+          <AdminPrivateRoute>
+            <Dasboard />
+          </AdminPrivateRoute>
+        ),
         children: [
+          {
+            path: "manageDashboard",
+            element: <ManageDashoard />,
+          },
           {
             path: "addDoctor",
             element: <AddDoctor />,

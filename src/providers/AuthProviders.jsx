@@ -51,14 +51,17 @@ const PrivateRoute = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", { uid: currentUser?.uid })
+          .post("https://doc-house-server-omihasan1307.vercel.app/jwt", {
+            uid: currentUser?.uid,
+          })
           .then((res) => {
             localStorage.setItem("access-token", res.data.token);
+            setLoading(false);
           });
       } else {
         localStorage.removeItem("access-token");
       }
-      setLoading(false);
+
       setUser(currentUser);
     });
     return () => {

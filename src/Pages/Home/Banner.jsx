@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import banner from "../../../src/img/banner.png";
 import circle from "../../../src/img/Ellipse 1.png";
 import tablet from "../../../src/img/tablet.png";
@@ -14,9 +15,12 @@ const Banner = () => {
             Lorem Ipsum is simply dummy text they are printing typesetting has
             been the industry’s stardard.
           </p>
-          <button className="text-white px-5 py-2 rounded bg-[#F7A582]">
-            All Service
-          </button>
+          <Link
+            to="/appoinment"
+            className="text-white px-5 py-2 rounded bg-[#F7A582]"
+          >
+            Appoinment
+          </Link>
         </div>
         <div className="flex justify-center items-center ">
           <div className="">

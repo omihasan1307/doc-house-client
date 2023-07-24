@@ -10,6 +10,14 @@ const Dasboard = () => {
     <div className="uppercase ">
       <li>
         <NavLink
+          to="manageDashboard"
+          className={({ isActive }) => (isActive ? active : inActive)}
+        >
+          Dashboard
+        </NavLink>
+      </li>
+      <li className="my-2">
+        <NavLink
           to="allUsers"
           className={({ isActive }) => (isActive ? active : inActive)}
         >

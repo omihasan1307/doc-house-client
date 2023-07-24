@@ -3,20 +3,20 @@ import { AuthContext } from "../providers/AuthProviders";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecuire from "./useAxiosSecuire";
 
-const useAllDoctors = () => {
+const useAllPayments = () => {
   const [instance] = useAxiosSecuire();
-  const { user, loading } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
 
-  const { data, isLoading, refetch } = useQuery({
-    queryKey: ["allDoctors"],
+  const { data: allpayment, isLoading } = useQuery({
+    queryKey: ["payment"],
     enabled: !loading,
     queryFn: async () => {
-      const response = await instance.get(`/doctorList?uid=${user?.uid}`);
+      const response = await instance.get(`/allPayments`);
       return response.data;
     },
   });
 
-  return [data, refetch, isLoading];
+  return [allpayment, isLoading];
 };
 
-export default useAllDoctors;
+export default useAllPayments;

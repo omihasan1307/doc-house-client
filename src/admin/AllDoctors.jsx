@@ -6,7 +6,9 @@ const AllDoctors = () => {
   const [data, refetch, isLoading] = useAllDoctors();
   const handleDelete = (doc) => {
     axios
-      .delete(`http://localhost:5000/doctorList/${doc?._id}?uid=${doc?.uid}`)
+      .delete(
+        `https://doc-house-server-omihasan1307.vercel.app/doctorList/${doc?._id}?uid=${doc?.uid}`
+      )
       .then((data) => {
         refetch();
         enqueueSnackbar(`Hi , Your doctor Deleted Successfully `, {

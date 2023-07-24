@@ -2,9 +2,11 @@ import { NavLink } from "react-router-dom";
 import logo from "../../src/img/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProviders";
+import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
-  const { user, loading, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const [data] = useAdmin();
 
   const handleLogout = () => {
     logOut()
@@ -15,9 +17,8 @@ const Navbar = () => {
   };
 
   const active =
-    "bg-[#F7A582] px-4 py-2 rounded lg:mx-5 lg:inline inline-block lg:my-0 my-1 w-full uppercase";
-  const inActive =
-    "lg:text-white mx-5 inline-block lg:inline inline-block lg:my-0 my-1 w-full uppercase";
+    "bg-[#F7A582] px-4 py-2 rounded  inline-block w-full uppercase";
+  const inActive = "px-4 py-2 rounded  inline-block w-full uppercase";
 
   const navItem = (
     <div className="lg:text-white lg:flex items-center ">
@@ -45,18 +46,30 @@ const Navbar = () => {
           Appoinment
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/dashboard/allUsers"
-          className={({ isActive }) => (isActive ? active : inActive)}
-        >
-          Dasboard
-        </NavLink>
-      </li>
+      {data?.role === "admin" ? (
+        <li>
+          <NavLink
+            to="dashboard/manageDashboard"
+            className={({ isActive }) => (isActive ? active : inActive)}
+          >
+            Dasboard
+          </NavLink>
+        </li>
+      ) : (
+        <li>
+          <NavLink
+            to="patient"
+            className={({ isActive }) => (isActive ? active : inActive)}
+          >
+            Dasboard
+          </NavLink>
+        </li>
+      )}
+
       <li>
         {user ? (
           <div className="flex justify-center items-center ">
-            <button onClick={handleLogout} className="me-5 uppercase">
+            <button onClick={handleLogout} className="px-4 uppercase">
               LogOut
             </button>
             <div className="avatar">

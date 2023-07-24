@@ -6,7 +6,6 @@ import { useLoaderData } from "react-router-dom";
 
 const DoctorDetails = () => {
   const docData = useLoaderData();
-  console.log(docData);
   return (
     <div>
       <div className="bg-[#07332F] text-white  h-[300px] rounded-es-xl rounded-ee-xl">

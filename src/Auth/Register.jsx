@@ -5,6 +5,7 @@ import { AuthContext } from "../providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import Google from "./Google";
+import axios from "axios";
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
@@ -19,16 +20,23 @@ const Register = () => {
 
   const from = location.state?.from?.pathname || "/";
   const onSubmit = (data) => {
-    console.log(data);
-
     createUser(data?.email, data?.password)
       .then((result) => {
-        const loggedUser = result.user;
-        console.log("loggedUser", loggedUser);
-
         updateUser(data?.name, data?.photo)
           .then(() => {
-            console.log("user profile info updated");
+            axios
+              .post(
+                `https://doc-house-server-omihasan1307.vercel.app/users?uid=${result?.user?.uid}`,
+                {
+                  userName: data?.name,
+                  userEmail: data?.email,
+                  userPhoto: data?.photo,
+                  userUid: result?.user?.uid,
+                  role: "patient",
+                }
+              )
+              .then(() => {});
+
             reset();
             Swal.fire({
               position: "top-end",

@@ -82,7 +82,7 @@ const ExpertsDoctors = () => {
                       </div>
                       <div className="ms-4 text-gray-500">${doc?.fees}</div>
                     </div>
-                    <div className="text-white w-full my-3 px-5 py-2 rounded bg-[#F7A582] text-xl text-center">
+                    <div>
                       <Link
                         className="text-white w-full my-3 px-5 py-2 rounded bg-[#F7A582] text-xl text-center inline-block"
                         to={`/doctorDetails/${doc._id}`}

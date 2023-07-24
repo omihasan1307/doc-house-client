@@ -27,21 +27,26 @@ const AddDoctor = () => {
           doctorSpecialty,
           fees: parseFloat(price),
           doctorImg: imgUrl,
+          role: "doctor",
         };
 
-        console.log(doctor);
-        axios.post("http://localhost:5000/doctorList", doctor).then((res) => {
-          if (res.data === "user already exists") {
-            enqueueSnackbar(`Hi , Your doctor already added `, {
-              variant: "error",
-            });
-          } else {
-            reset();
-            enqueueSnackbar(`Hi , Your doctor has been added `, {
-              variant: "success",
-            });
-          }
-        });
+        axios
+          .post(
+            "https://doc-house-server-omihasan1307.vercel.app/doctorList",
+            doctor
+          )
+          .then((res) => {
+            if (res.data === "user already exists") {
+              enqueueSnackbar(`Hi , Your doctor already added `, {
+                variant: "error",
+              });
+            } else {
+              reset();
+              enqueueSnackbar(`Hi , Your doctor has been added `, {
+                variant: "success",
+              });
+            }
+          });
       }
     });
   };

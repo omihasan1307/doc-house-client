@@ -3,20 +3,19 @@ import { AuthContext } from "../providers/AuthProviders";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecuire from "./useAxiosSecuire";
 
-const useAllDoctors = () => {
+const useBookingList = () => {
   const [instance] = useAxiosSecuire();
   const { user, loading } = useContext(AuthContext);
 
-  const { data, isLoading, refetch } = useQuery({
-    queryKey: ["allDoctors"],
+  const { data, refetch, isLoading } = useQuery({
+    queryKey: ["bookingList"],
     enabled: !loading,
     queryFn: async () => {
-      const response = await instance.get(`/doctorList?uid=${user?.uid}`);
+      const response = await instance.get(`/bookingList?email=${user?.email}`);
       return response.data;
     },
   });
-
   return [data, refetch, isLoading];
 };
 
-export default useAllDoctors;
+export default useBookingList;
