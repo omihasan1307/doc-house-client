@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 const Doctor = () => {
   const [data, refetch, isLoading] = useAllDoctors();
+
   return (
     <div>
       <div className="my-10">

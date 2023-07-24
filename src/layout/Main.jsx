@@ -7,7 +7,7 @@ const Main = () => {
   const hideHeaderFooter =
     location.pathname.includes("login") || location.pathname.includes("signup");
   return (
-    <div className="mx-8 lg:mx-36">
+    <div className="mx-8 lg:mx-36 ">
       {hideHeaderFooter || <Navbar />}
       <Outlet />
       {hideHeaderFooter || <Footer />}

@@ -46,24 +46,28 @@ const Navbar = () => {
           Appoinment
         </NavLink>
       </li>
-      {data?.role === "admin" ? (
-        <li>
-          <NavLink
-            to="dashboard/manageDashboard"
-            className={({ isActive }) => (isActive ? active : inActive)}
-          >
-            Dasboard
-          </NavLink>
-        </li>
-      ) : (
-        <li>
-          <NavLink
-            to="patient"
-            className={({ isActive }) => (isActive ? active : inActive)}
-          >
-            Dasboard
-          </NavLink>
-        </li>
+      {user && (
+        <>
+          {data?.role === "admin" ? (
+            <li>
+              <NavLink
+                to="dashboard/manageDashboard"
+                className={({ isActive }) => (isActive ? active : inActive)}
+              >
+                Dasboard
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink
+                to="patient"
+                className={({ isActive }) => (isActive ? active : inActive)}
+              >
+                Dasboard
+              </NavLink>
+            </li>
+          )}
+        </>
       )}
 
       <li>

@@ -6,7 +6,10 @@ import { AuthContext } from "../../providers/AuthProviders";
 import axios from "axios";
 import { enqueueSnackbar } from "notistack";
 import useAdmin from "../../hooks/useAdmin";
+import { useNavigate } from "react-router-dom";
 const Appoinment = () => {
+  const navigate = useNavigate();
+
   const monthName = [
     "January",
     "February",
@@ -29,8 +32,14 @@ const Appoinment = () => {
   const [slot, setSlot] = useState(null);
   const [matched, setMatched] = useState(true);
   const [update, setupdate] = useState({});
-  // console.log(role);
-  console.log(data);
+
+  console.log(selectedDay);
+  if (selectedDay) {
+    if (!user) {
+      navigate("/login");
+    }
+  }
+
   const dated = `${monthName[selectedDay?.month - 1]} ${selectedDay?.day}, ${
     selectedDay?.year
   }`;
@@ -166,7 +175,7 @@ const Appoinment = () => {
         )}
       </div>
 
-      {data?.role === "patient" ? (
+      {data?.role === "patient" && (
         <div className="py-10 ">
           {slot && (
             <div>
@@ -216,12 +225,14 @@ const Appoinment = () => {
             </div>
           )}
         </div>
-      ) : (
-        <p className="text-center text-2xl font-bold my-10 text-gray-500">
-          {" "}
-          No option for Admin and doctor
-        </p>
       )}
+      {data?.role === "doctor" ||
+        (data?.role === "admin" && (
+          <p className="text-center text-2xl font-bold my-10 text-gray-500">
+            {" "}
+            No option for Admin and doctor
+          </p>
+        ))}
 
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal">
