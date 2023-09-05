@@ -18,7 +18,7 @@ const Payment = () => {
   } = loader;
 
   return (
-    <div>
+    <div className="max-w-screen-2xl mx-auto mb-52 ">
       <div className="grid lg:grid-cols-2 gap-10 my-10">
         <div>
           <h1 className="text-xl">{name}</h1>
