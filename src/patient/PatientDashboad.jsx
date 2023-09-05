@@ -7,7 +7,7 @@ const PatientDashboad = () => {
   const [payment = data, reload = refetch, loading = isLoading] = usePayment();
 
   return (
-    <div className="min-h-[50vh]">
+    <div className="min-h-screen max-w-screen-2xl mx-auto">
       <h1 className="text-xl font-bold mx-10 my-10">
         My Appoinment : {data?.length}
       </h1>

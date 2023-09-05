@@ -13,7 +13,7 @@ import useAllDoctors from "../../hooks/useAllDoctors";
 const ExpertsDoctors = () => {
   const [data, refetch, isLoading] = useAllDoctors();
   return (
-    <div>
+    <div className="max-w-screen-2xl mx-auto px-8 lg:px-0">
       <Title
         title={"Our Expert Doctors"}
         subtitle={
@@ -29,7 +29,7 @@ const ExpertsDoctors = () => {
           <div className="grid lg:grid-cols-3 gap-10 mt-16 mb-10  ">
             {data?.slice(0, 3)?.map((doc) => (
               <div key={doc._id}>
-                <div className="border rounded-xl">
+                <div className="shadow rounded-xl">
                   <div className="my-5 w-[350px] h-[300px]  mx-auto">
                     <img
                       className="w-full h-full object-cover rounded-lg"

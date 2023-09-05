@@ -6,8 +6,8 @@ const Services = () => {
   const active = "bg-[#F7A582] px-4 py-4 rounded lg:mx-5 font-semibold";
   const inActive = "text-black mx-5";
   return (
-    <div className="my-10">
-      <div className="grid lg:grid-cols-2 ">
+    <div className="my-10 max-w-screen-2xl mx-auto px-8 lg:px-0">
+      <div className="grid lg:grid-cols-2">
         <div className="">
           <img src={service} alt="" />
         </div>

@@ -2,8 +2,8 @@ import logo from "../../src/img/logo.png";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer p-10 bg-base-200 text-base-content ">
+    <div className="bg-base-200 text-base-content">
+      <footer className="footer p-10 max-w-screen-2xl mx-auto">
         <div>
           <div className=" flex items-center font-bold ">
             <img className="w-10 bg-[#07332F] p-1 rounded" src={logo} alt="" />

@@ -5,15 +5,17 @@ import tablet from "../../../src/img/tablet.png";
 
 const Banner = () => {
   return (
-    <div className=" bg-[#07332F] text-white  rounded-b-lg">
-      <div className="grid lg:grid-cols-2 gap-14 px-10 lg:h-[600px] lg:pt-20">
+    <div className="bg-[#07332F] text-white">
+      <div className="grid lg:grid-cols-2 gap-14 px-10 lg:h-[600px] lg:pt-20 max-w-screen-2xl mx-auto">
         <div className="text-center lg:text-left  h-[75%]">
           <h2 className="mt-20 font-semibold text-5xl">
             Your Best Medical <br /> Help Center
           </h2>
-          <p className="my-5">
-            Lorem Ipsum is simply dummy text they are printing typesetting has
-            been the industry’s stardard.
+          <p className="mb-10 mt-5">
+            At Doc House Dental Hospital, we are dedicated to bringing you
+            top-notch dental care with a modern twist. Our cutting-edge online
+            appointment system makes it easier than ever for patients to access
+            our expert dental services.
           </p>
           <Link
             to="/appoinment"

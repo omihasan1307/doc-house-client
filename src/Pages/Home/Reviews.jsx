@@ -5,7 +5,7 @@ import Title from "../../shared/Title";
 
 const Reviews = () => {
   return (
-    <div>
+    <div className="max-w-screen-2xl mx-auto px-8 lg:px-0">
       <Title
         title={"What Our Patients Says"}
         subtitle={
@@ -13,7 +13,7 @@ const Reviews = () => {
         }
       ></Title>
       <div className="grid lg:grid-cols-2 gap-10 mt-16 mb-10">
-        <div className="border rounded-xl px-16 py-16">
+        <div className="shadow rounded-xl px-16 py-16">
           <div className="flex justify-between">
             <div className="flex items-center ">
               <img src={review1} alt="" />
@@ -32,25 +32,24 @@ const Reviews = () => {
             centurines.
           </div>
         </div>
-        <div className="border rounded-xl">
-          <div className="border rounded-xl px-16 py-16">
-            <div className="flex justify-between">
-              <div className="flex items-center ">
-                <img src={review2} alt="" />
-                <div className="ms-5">
-                  {" "}
-                  <h2 className="text-xl font-bold">Farhana Hossain </h2>
-                  <h2 className="text-gray-400 mt-1">HouseWife</h2>
-                </div>
+
+        <div className="shadow rounded-xl px-16 py-16">
+          <div className="flex justify-between">
+            <div className="flex items-center ">
+              <img src={review2} alt="" />
+              <div className="ms-5">
+                {" "}
+                <h2 className="text-xl font-bold">Farhana Hossain </h2>
+                <h2 className="text-gray-400 mt-1">HouseWife</h2>
               </div>
-              <img src={quote} alt="" />
             </div>
-            <div className="mt-10 text-gray-500">
-              Lorem Ipsum has been the industry’s standard dummy text ever since
-              the 1500s, when an unknow printer tool a galley of type and
-              scrambled it to make type specimen book has survived not only five
-              centurines.
-            </div>
+            <img src={quote} alt="" />
+          </div>
+          <div className="mt-10 text-gray-500">
+            Lorem Ipsum has been the industry’s standard dummy text ever since
+            the 1500s, when an unknow printer tool a galley of type and
+            scrambled it to make type specimen book has survived not only five
+            centurines.
           </div>
         </div>
       </div>

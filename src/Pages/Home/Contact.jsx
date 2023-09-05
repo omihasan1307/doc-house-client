@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Contact = () => {
   return (
-    <div className="my-24">
-      <div className="bg-[#07332F] text-white px-16 py-16 rounded-lg">
+    <div className="my-24 bg-[#07332F] text-white px-8 lg:px-0">
+      <div className="max-w-screen-2xl mx-auto py-16">
         <div className="grid lg:grid-cols-2 gap-10">
           <div>
             <h2 className="text-4xl font-bold my-5">Contact With Us</h2>

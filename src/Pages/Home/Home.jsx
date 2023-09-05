@@ -4,6 +4,8 @@ import Address from "./Address";
 import Reviews from "./Reviews";
 import ExpertsDoctors from "./ExpertsDoctors";
 import Contact from "./Contact";
+import About from "./About";
+import MedicalTeam from "./MedicalTeam";
 
 const Home = () => {
   return (
@@ -13,7 +15,9 @@ const Home = () => {
       <Address />
       <Reviews />
       <ExpertsDoctors />
+      <About />
       <Contact />
+      <MedicalTeam />
     </div>
   );
 };

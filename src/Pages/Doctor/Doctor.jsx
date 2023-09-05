@@ -12,7 +12,7 @@ const Doctor = () => {
   const [data, refetch, isLoading] = useAllDoctors();
 
   return (
-    <div>
+    <div className="max-w-screen-2xl mx-auto">
       <div className="my-10">
         {isLoading ? (
           <div className=" flex  justify-center">
