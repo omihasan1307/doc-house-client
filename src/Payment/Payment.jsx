@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router-dom";
 const stripePromise = loadStripe(import.meta.env.VITE_APP_Payment_Gateway_PK);
 const Payment = () => {
   const loader = useLoaderData();
+  console.log(loader);
   const {
     bookingDate,
     bookingSlot,
